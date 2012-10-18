@@ -233,8 +233,6 @@ get_move (char *prog, int w, char *move)
   fclose (f);
   system (prog);
 
-  sleep (1);
-
   /* needs to be made to read what was previously on stdout.  Change
      stdout to stdin to test manually */
   f = fopen ("./.chess.log", "r");
@@ -299,7 +297,7 @@ legal (char *move, int player)
       int row2 = (player == 0) ? 4 : 5;
       if ((e_row == row2) && (e_col == s_col)
 	  && (piece_at (e_row, e_col) == EMPTY) 
-	  && (piece_at (s_row + dr, s_col + dc) == EMPTY))
+	  && (piece_at (s_row + dr, s_col) == EMPTY))
 	return 1;
 
       /*Screw en-passant */
