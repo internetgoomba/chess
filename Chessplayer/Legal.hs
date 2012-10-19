@@ -23,6 +23,8 @@ legal brd@(Board _ c) mv@(Move s@(Position sr sc) e@(Position er ec))
   | (pieceAt s brd) == (Piece c Knight) = knightLegal brd mv
   | (pieceAt s brd) == (Piece c Bishop) = bishopLegal brd mv
   | (pieceAt s brd) == (Piece c Pawn) = pawnLegal brd mv
+  where
+    color = (\(Piece col _) -> col)
                                                                      
 kingLegal :: Board -> Move -> Bool
 kingLegal _ (Move (Position sr sc) (Position er ec)) = 

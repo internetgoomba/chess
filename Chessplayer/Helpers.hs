@@ -1,4 +1,4 @@
-module Chessplayer.Helpers (readBoard, toString, pieceAt, switchColor, update, color, allMoves) 
+module Chessplayer.Helpers (readBoard, toString, pieceAt, switchColor, update, allMoves) 
        where
 
 import Data.Char
@@ -43,9 +43,6 @@ allPositions = [[(Position r c) | c <- [0..7]] | r <- [0..7]]
 
 pieceAt :: Position -> Board -> Piece
 pieceAt (Position r c)  (Board b _) = (b !! r) !! c
-
-color :: Piece -> Color
-color (Piece c t) = c
 
 switchColor :: Color -> Color
 switchColor Black = White
